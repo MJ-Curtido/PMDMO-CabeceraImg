@@ -1,0 +1,9 @@
+<button (click)="cambiarImgModoAngular()">Modo Angular</button> &nbsp;&nbsp;&nbsp;&nbsp;
+<button (click)="cambiarImgModoTradi()">Modo Tradicional</button> &nbsp;&nbsp;&nbsp;&nbsp;
+<button *ngIf="!mostrar" (click)="mostrarOcularImg()">Ocultar</button>
+<button *ngIf="mostrar" (click)="mostrarOcularImg()">Mostrar</button>
+
+<br><br><br>
+
+<img [hidden]="mostrar" src="{{imagenModoAngular}}"/> &nbsp;&nbsp;&nbsp;&nbsp;
+<img #imgTradi [hidden]="mostrar" src="../../assets/imgs/caballero.jpeg"/>
