@@ -8,6 +8,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class CabeceraComponent implements OnInit {
   imagenModoAngular:String = '../../assets/imgs/caballero.jpeg';
   @ViewChild('imgTradi') imgTradi!: ElementRef;
+  @ViewChild('btnMostrarOcultar') btnMostrarOcultar!: ElementRef;
   flagAngular:Boolean = true;
   flagTradi:Boolean = true;
   mostrar:Boolean = false;
@@ -39,7 +40,16 @@ export class CabeceraComponent implements OnInit {
   }
 
   mostrarOcularImg() {
-    this.mostrar = !this.mostrar;
+    if (this.mostrar) {
+      this.btnMostrarOcultar.nativeElement.textContent = "Mostrar";
+
+      this.mostrar = false;
+    }
+    else {
+      this.btnMostrarOcultar.nativeElement.textContent = "Ocultar";
+
+      this.mostrar = true;
+    }
   }
 
   constructor() { }
