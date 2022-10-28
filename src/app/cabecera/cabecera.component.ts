@@ -6,12 +6,12 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./cabecera.component.css']
 })
 export class CabeceraComponent implements OnInit {
-  imagenModoAngular:String = '../../assets/imgs/caballero.jpeg';
+  imagenModoAngular: String = '../../assets/imgs/caballero.jpeg';
   @ViewChild('imgTradi') imgTradi!: ElementRef;
-  @ViewChild('btnMostrarOcultar') btnMostrarOcultar!: ElementRef;
-  flagAngular:Boolean = true;
-  flagTradi:Boolean = true;
-  mostrar:Boolean = false;
+  txtMostrarOcultar: String = "Ocultar";
+  flagAngular: Boolean = true;
+  flagTradi: Boolean = true;
+  mostrar: Boolean = false;
 
   cambiarImgModoAngular() {
     if (this.flagAngular) {
@@ -40,15 +40,15 @@ export class CabeceraComponent implements OnInit {
   }
 
   mostrarOcularImg() {
-    if (this.mostrar) {
-      this.btnMostrarOcultar.nativeElement.textContent = "Mostrar";
-
-      this.mostrar = false;
-    }
-    else {
-      this.btnMostrarOcultar.nativeElement.textContent = "Ocultar";
+    if (!this.mostrar) {
+      this.txtMostrarOcultar = "Mostrar";
 
       this.mostrar = true;
+    }
+    else {
+      this.txtMostrarOcultar = "Ocultar";
+
+      this.mostrar = false;
     }
   }
 
