@@ -1,5 +1,5 @@
-<button (click)="cambiarImgModoAngular()">Modo Angular</button> &nbsp;&nbsp;&nbsp;&nbsp;
-<button (click)="cambiarImgModoTradi()">Modo Tradicional</button> &nbsp;&nbsp;&nbsp;&nbsp;
+<button [disabled]="mostrar" (click)="cambiarImgModoAngular()">Modo Angular</button> &nbsp;&nbsp;&nbsp;&nbsp;
+<button [disabled]="mostrar" (click)="cambiarImgModoTradi()">Modo Tradicional</button> &nbsp;&nbsp;&nbsp;&nbsp;
 <button (click)="mostrarOcularImg()">{{txtMostrarOcultar}}</button>
 
 <br><br><br>
