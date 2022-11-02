@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { CabeceraComponent } from './cabecera/cabecera.component';
+import { PaginaComponent } from './pagina/pagina.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CabeceraComponent
+    CabeceraComponent,
+    PaginaComponent
   ],
   imports: [
     BrowserModule

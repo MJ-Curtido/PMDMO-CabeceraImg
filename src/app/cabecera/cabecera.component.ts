@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-cabecera',
@@ -6,53 +6,56 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./cabecera.component.css']
 })
 export class CabeceraComponent implements OnInit {
-  imagenModoAngular: String = '../../assets/imgs/caballero.jpeg';
-  @ViewChild('imgTradi') imgTradi!: ElementRef;
-  txtMostrarOcultar: String = "Ocultar";
-  flagAngular: Boolean = true;
-  flagTradi: Boolean = true;
-  mostrar: Boolean = false;
+  txtMostrarOcultar: String;
+  flagAngularTemp: Boolean;
+  flagTradiTemp: Boolean;
+  mostrarTemp: Boolean;
+
+  @Output() mostrar = new EventEmitter<Boolean>();
+  @Output() imgAngular = new EventEmitter<String>();
+  @Output() imgTradi = new EventEmitter<String>();
 
   cambiarImgModoAngular() {
-    if (this.flagAngular) {
-      this.imagenModoAngular = '../../assets/imgs/hornet.jpeg';
-
-      this.flagAngular = false;
+    if (this.flagAngularTemp) {
+      this.imgAngular.emit('../../assets/imgs/hornet.jpeg');
     }
     else {
-      this.imagenModoAngular = '../../assets/imgs/caballero.jpeg';
-
-      this.flagAngular = true;
+      this.imgAngular.emit('../../assets/imgs/caballero.jpeg');
     }
+
+    this.flagAngularTemp = !this.flagAngularTemp;
   }
 
   cambiarImgModoTradi() {
-    if (this.flagTradi) {
-      this.imgTradi.nativeElement.src = '../../assets/imgs/hornet.jpeg';
-
-      this.flagTradi = false;
+    if (this.flagTradiTemp) {
+      this.imgTradi.emit('../../assets/imgs/hornet.jpeg');
     }
     else {
-      this.imgTradi.nativeElement.src = '../../assets/imgs/caballero.jpeg';
-
-      this.flagTradi = true;
+      this.imgTradi.emit('../../assets/imgs/caballero.jpeg');
     }
+
+    this.flagTradiTemp = !this.flagTradiTemp;
   }
 
   mostrarOcularImg() {
-    if (!this.mostrar) {
+    if (!this.mostrarTemp) {
       this.txtMostrarOcultar = "Mostrar";
-
-      this.mostrar = true;
     }
     else {
       this.txtMostrarOcultar = "Ocultar";
-
-      this.mostrar = false;
     }
+
+    this.mostrarTemp = !this.mostrarTemp;
+
+    this.mostrar.emit(this.mostrarTemp);
   }
 
-  constructor() { }
+  constructor() {
+    this.txtMostrarOcultar = "Ocultar";
+    this.flagAngularTemp = true;
+    this.flagTradiTemp = true;
+    this.mostrarTemp = false;
+  }
 
   ngOnInit(): void {
   }
