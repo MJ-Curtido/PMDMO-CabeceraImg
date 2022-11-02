@@ -1,6 +1,4 @@
-<app-cabecera (imgAngular)="cambiarImgModoAngular($event)" (mostrar)="cambiarMostrar($event)" (imgTradi)="cambiarImgModoTradi($event)"></app-cabecera>
-
-<br><br><br>
-
-<img *ngIf="!mostrar" [src]="srcImgAngular"/> &nbsp;&nbsp;&nbsp;&nbsp;
-<img #imgTradi *ngIf="!mostrar" src="../../assets/imgs/caballero.jpeg"/>
+<app-cabecera (imgAngular)="cambiarImgModoAngular($event)" (mostrar)="cambiarMostrar($event)" (imgTradi)="cambiarImgModoTradi($event)">
+    <img *ngIf="!mostrar" [src]="srcImgAngular"/> &nbsp;&nbsp;&nbsp;&nbsp;
+    <img #imgTradi *ngIf="!mostrar" src="../../assets/imgs/caballero.jpeg"/>
+</app-cabecera>
