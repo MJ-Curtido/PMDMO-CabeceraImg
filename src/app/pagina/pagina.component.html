@@ -1,4 +1,10 @@
 <app-cabecera (imgAngular)="cambiarImgModoAngular($event)" (mostrar)="cambiarMostrar($event)" (imgTradi)="cambiarImgModoTradi($event)">
+    <img id="logo" src="../../assets/imgs/HKLogo.png">
+</app-cabecera>
+
+<br><br><br>
+
+<div>
     <img *ngIf="!mostrar" [src]="srcImgAngular"/> &nbsp;&nbsp;&nbsp;&nbsp;
     <img #imgTradi *ngIf="!mostrar" src="../../assets/imgs/caballero.jpeg"/>
-</app-cabecera>
+</div>

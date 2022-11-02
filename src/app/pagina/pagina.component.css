@@ -2,3 +2,12 @@ img {
     width: 500px;
     height: 270px;
 }
+
+#logo {
+    width: 300px;
+    height: auto;
+}
+
+div {
+    text-align: center;
+}
